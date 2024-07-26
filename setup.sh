@@ -18,6 +18,8 @@ mkdir reverse
 unzip caddy-reverse-proxy.zip
 mv caddy-reverse-proxy-main/* reverse/
 rm -r caddy-reverse-proxy-main/
+rm caddy-reverse-proxy.zip
+rm docker.sh
 
 # modify
 echo "
