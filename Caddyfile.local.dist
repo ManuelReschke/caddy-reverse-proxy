@@ -1,0 +1,10 @@
+# HTTP
+http://localhost:8777 {
+  reverse_proxy my-docker-app:8888
+}
+
+# HTTPS internal
+https://localhost:8778 {
+  reverse_proxy my-docker-app:8888
+  tls internal
+}
