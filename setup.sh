@@ -19,6 +19,7 @@ unzip caddy-reverse-proxy.zip
 mv caddy-reverse-proxy-main/* reverse/
 rm -r caddy-reverse-proxy-main/
 rm caddy-reverse-proxy.zip docker.sh
+cd reverse || exit
 
 # interactive setup
 env="local"
