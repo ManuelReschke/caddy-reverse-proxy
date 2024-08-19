@@ -12,4 +12,8 @@ Done :)
 
 ## Example Setup
 
-@todo coming soon
+### Setup a reverse proxy on a hetzner VPS for a wordpress site
+
+Server A with IP 88.88.88.88 host a WordPress installation, and we want to access it via server B a reverse proxy.
+
+![caddy-reverse-proxy-wordpress.gif](caddy-reverse-proxy-wordpress-preview.gif)
