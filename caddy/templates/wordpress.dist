@@ -1,0 +1,21 @@
+#############################################
+############## Wordpress Example ############
+#############################################
+
+$DOMAIN {
+    encode gzip zstd
+    # Cache-Control Header for static files
+    header /wp-content/uploads/* Cache-Control "max-age=43200"
+    header /wp-content/themes/* Cache-Control "max-age=43200"
+    header /wp-content/plugins/* Cache-Control "max-age=43200"
+
+    reverse_proxy $IP:$PORT
+}
+
+:80 {
+    respond "HTTP request did not specify site domain" 403
+}
+
+:443 {
+    respond "HTTP request did not specify site domain" 403
+}

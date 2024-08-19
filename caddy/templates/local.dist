@@ -1,0 +1,10 @@
+# HTTP
+http://$DOMAIN:$PORT {
+  reverse_proxy my-docker-app:8888
+}
+
+# HTTPS internal
+https://$DOMAIN:443 {
+  reverse_proxy my-docker-app:8888
+  tls internal
+}

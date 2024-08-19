@@ -1,0 +1,20 @@
+#############################################
+############## Basic Website Example ########
+#############################################
+
+$DOMAIN {
+    encode gzip zstd
+    # Cache-Control Header for static files
+    header /static/* Cache-Control max-age=43200
+    reverse_proxy http://$IP:$PORT
+}
+
+############### Block direct access ##########
+
+:80 {
+    respond "HTTP request did not specify site domain" 403
+}
+
+:443 {
+    respond "HTTP request did not specify site domain" 403
+}

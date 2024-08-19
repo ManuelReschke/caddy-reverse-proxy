@@ -1,0 +1,29 @@
+#############################################
+############## HTTPS Example ################
+#############################################
+
+$DOMAIN {
+  encode gzip zstd
+
+  reverse_proxy $IP:$PORT {
+      header_up Host {host}
+      header_up X-Real-IP {remote_host}
+      header_up X-Forwarded-For {remote_host}
+      header_up X-Forwarded-Proto {scheme}
+      transport http {
+         tls
+         # skip check if your cert is not valid
+         tls_insecure_skip_verify
+      }
+  }
+}
+
+############### Block direct access ##########
+
+:80 {
+    respond "HTTP request did not specify site domain" 403
+}
+
+:443 {
+    respond "HTTP request did not specify site domain" 403
+}
